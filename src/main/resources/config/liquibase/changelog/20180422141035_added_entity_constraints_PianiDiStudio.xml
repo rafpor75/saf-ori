@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PianiDiStudio.
+    -->
+    <changeSet id="20180422141035-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="rel_anno_accademico_id"
+                                 baseTableName="piani_di_studio"
+                                 constraintName="fk_piani_di_studio_rel_anno_accademico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anno_accademico"/>
+
+        <addForeignKeyConstraint baseColumnNames="rel_pds_cdl_id"
+                                 baseTableName="piani_di_studio"
+                                 constraintName="fk_piani_di_studio_rel_pds_cdl_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cdl"/>
+
+        <addForeignKeyConstraint baseColumnNames="piani_di_studios_id"
+                                 baseTableName="piani_di_studio_rel_pds_mat"
+                                 constraintName="fk_piani_di_studio_rel_pds_mat_piani_di_studios_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="piani_di_studio"/>
+        <addForeignKeyConstraint baseColumnNames="rel_pds_mats_id"
+                                 baseTableName="piani_di_studio_rel_pds_mat"
+                                 constraintName="fk_piani_di_studio_rel_pds_mat_rel_pds_mats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materie"/>
+        
+    </changeSet>
+</databaseChangeLog>

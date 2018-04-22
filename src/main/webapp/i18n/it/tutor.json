@@ -1,0 +1,26 @@
+
+{
+    "safOriApp": {
+        "tutor" : {
+            "home": {
+                "title": "Tutors",
+                "createLabel": "Genera un nuovo Tutor",
+                "createOrEditLabel": "Genera o modifica un Tutor"
+            },
+            "created": "&Egrave; stato generato un nuovo Tutor con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Tutor identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Tutor con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Tutor {{ id }}?"
+            },
+            "detail": {
+                "title": "Tutor"
+            },
+            "nome": "Nome",
+            "cognome": "Cognome",
+            "email": "Email",
+            "abilitato": "Abilitato",
+            "relTutMats": "Rel Tut Mats"
+        }
+    }
+}

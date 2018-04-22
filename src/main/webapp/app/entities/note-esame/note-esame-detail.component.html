@@ -1,0 +1,82 @@
+
+<div *ngIf="noteEsame">
+    <h2><span jhiTranslate="safOriApp.noteEsame.detail.title">Note Esame</span> {{noteEsame.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.noteEsame.appunti">Appunti</span></dt>
+        <dd>
+            <span>{{noteEsame.appunti}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.dataDispensa">Data Dispensa</span></dt>
+        <dd>
+            <span>{{noteEsame.dataDispensa | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.dataCorsi">Data Corsi</span></dt>
+        <dd>
+            <span>{{noteEsame.dataCorsi | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.dataABI">Data ABI</span></dt>
+        <dd>
+            <span>{{noteEsame.dataABI | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.dataRiepilogo">Data Riepilogo</span></dt>
+        <dd>
+            <span>{{noteEsame.dataRiepilogo | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.oraEsame">Ora Esame</span></dt>
+        <dd>
+            <span>{{noteEsame.oraEsame | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.costoEsame">Costo Esame</span></dt>
+        <dd>
+            <span>{{noteEsame.costoEsame}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.fasce">Fasce</span></dt>
+        <dd>
+            <span>{{noteEsame.fasce}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.piva">Piva</span></dt>
+        <dd>
+            <span>{{noteEsame.piva}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.fattura">Fattura</span></dt>
+        <dd>
+            <span>{{noteEsame.fattura}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.noteFattura">Note Fattura</span></dt>
+        <dd>
+            <span>{{noteEsame.noteFattura}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.emailInviata">Email Inviata</span></dt>
+        <dd>
+            <span>{{noteEsame.emailInviata}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.relNoteStud">Rel Note Stud</span></dt>
+        <dd>
+            <div *ngIf="noteEsame.relNoteStudId">
+                <a [routerLink]="['/studenti', noteEsame.relNoteStudId]">{{noteEsame.relNoteStudId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.noteEsame.relNoteEsami">Rel Note Esami</span></dt>
+        <dd>
+            <div *ngIf="noteEsame.relNoteEsamiId">
+                <a [routerLink]="['/esami', noteEsame.relNoteEsamiId]">{{noteEsame.relNoteEsamiId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'note-esame/'+ noteEsame.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

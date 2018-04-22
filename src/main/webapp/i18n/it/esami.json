@@ -1,0 +1,24 @@
+
+{
+    "safOriApp": {
+        "esami" : {
+            "home": {
+                "title": "Esamis",
+                "createLabel": "Genera un nuovo Esami",
+                "createOrEditLabel": "Genera o modifica un Esami"
+            },
+            "created": "&Egrave; stato generato un nuovo Esami con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Esami identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Esami con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Esami {{ id }}?"
+            },
+            "detail": {
+                "title": "Esami"
+            },
+            "data": "Data",
+            "relEsamiSedi": "Rel Esami Sedi",
+            "relMatEsami": "Rel Mat Esami"
+        }
+    }
+}

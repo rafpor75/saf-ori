@@ -1,0 +1,121 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNoteEsameLabel" jhiTranslate="safOriApp.noteEsame.home.createOrEditLabel">Create or edit a Note Esame</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!noteEsame.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="noteEsame.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.appunti" for="field_appunti">Appunti</label>
+            <input type="text" class="form-control" name="appunti" id="field_appunti"
+                [(ngModel)]="noteEsame.appunti" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.dataDispensa" for="field_dataDispensa">Data Dispensa</label>
+            <div class="input-group">
+                <input id="field_dataDispensa" type="text" class="form-control" name="dataDispensa" ngbDatepicker  #dataDispensaDp="ngbDatepicker" [(ngModel)]="noteEsame.dataDispensa"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataDispensaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.dataCorsi" for="field_dataCorsi">Data Corsi</label>
+            <div class="input-group">
+                <input id="field_dataCorsi" type="text" class="form-control" name="dataCorsi" ngbDatepicker  #dataCorsiDp="ngbDatepicker" [(ngModel)]="noteEsame.dataCorsi"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataCorsiDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.dataABI" for="field_dataABI">Data ABI</label>
+            <div class="input-group">
+                <input id="field_dataABI" type="text" class="form-control" name="dataABI" ngbDatepicker  #dataABIDp="ngbDatepicker" [(ngModel)]="noteEsame.dataABI"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataABIDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.dataRiepilogo" for="field_dataRiepilogo">Data Riepilogo</label>
+            <div class="input-group">
+                <input id="field_dataRiepilogo" type="text" class="form-control" name="dataRiepilogo" ngbDatepicker  #dataRiepilogoDp="ngbDatepicker" [(ngModel)]="noteEsame.dataRiepilogo"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataRiepilogoDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.oraEsame" for="field_oraEsame">Ora Esame</label>
+            <div class="d-flex">
+                <input id="field_oraEsame" type="datetime-local" class="form-control" name="oraEsame" [(ngModel)]="noteEsame.oraEsame"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.costoEsame" for="field_costoEsame">Costo Esame</label>
+            <input type="number" class="form-control" name="costoEsame" id="field_costoEsame"
+                [(ngModel)]="noteEsame.costoEsame" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.fasce" for="field_fasce">Fasce</label>
+            <input type="text" class="form-control" name="fasce" id="field_fasce"
+                [(ngModel)]="noteEsame.fasce" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.piva" for="field_piva">Piva</label>
+            <input type="text" class="form-control" name="piva" id="field_piva"
+                [(ngModel)]="noteEsame.piva" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.fattura" for="field_fattura">Fattura</label>
+            <input type="checkbox" class="form-control" name="fattura" id="field_fattura"
+                [(ngModel)]="noteEsame.fattura" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.noteFattura" for="field_noteFattura">Note Fattura</label>
+            <input type="text" class="form-control" name="noteFattura" id="field_noteFattura"
+                [(ngModel)]="noteEsame.noteFattura" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.emailInviata" for="field_emailInviata">Email Inviata</label>
+            <input type="checkbox" class="form-control" name="emailInviata" id="field_emailInviata"
+                [(ngModel)]="noteEsame.emailInviata" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.relNoteStud" for="field_relNoteStud">Rel Note Stud</label>
+            <select class="form-control" id="field_relNoteStud" name="relNoteStud" [(ngModel)]="noteEsame.relNoteStudId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="studentiOption.id" *ngFor="let studentiOption of studentis; trackBy: trackStudentiById">{{studentiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.noteEsame.relNoteEsami" for="field_relNoteEsami">Rel Note Esami</label>
+            <select class="form-control" id="field_relNoteEsami" name="relNoteEsami" [(ngModel)]="noteEsame.relNoteEsamiId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="esamiOption.id" *ngFor="let esamiOption of esamis; trackBy: trackEsamiById">{{esamiOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

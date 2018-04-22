@@ -1,0 +1,117 @@
+entity Facolta {
+	nome String required,
+    dataModifica LocalDate,
+    abilitato Boolean
+}
+
+entity AnnoAccademico {
+	   descrizione String required
+}
+
+entity Cdl {
+	codice String required,
+    nome String required,
+    abilitato Boolean
+}
+
+entity Docenti {
+	nome String required,
+    cognome String required,
+    email String,
+    abilitato Boolean
+}
+
+entity Materie {
+	nome String required,
+    cfu Integer,
+    abilitato Boolean,
+    dataModifica LocalDate
+}
+
+entity PianiDiStudio {
+	abilitato Boolean,
+    dataModifica LocalDate
+}
+
+entity Sedi {
+	sede String required
+}
+
+entity Studenti {
+	nome String required,
+    cognome String required,
+    email String required,
+    telefono String,
+    indirizzo String,
+    citta String,
+    provincia String,
+    stato String,
+    cap String,
+    dataDiNascita LocalDate,
+    luogoDiNascita String,
+    matricola String required,
+    tempoParziale Boolean,
+    abilitato Boolean,
+    dataModifica LocalDate
+    
+}
+entity Tutor {
+ 	nome String required,
+    cognome String required,
+    email String,
+    abilitato Boolean
+}
+
+entity Esami {
+ 	data LocalDate
+}
+
+entity NoteEsame {
+	appunti String,
+	dataDispensa LocalDate,
+    dataCorsi LocalDate,
+	dataABI LocalDate,
+    dataRiepilogo LocalDate,
+    oraEsame ZonedDateTime,
+    costoEsame Integer,
+    fasce String,
+    piva String,
+    fattura Boolean,
+    noteFattura String,
+    emailInviata Boolean
+
+}
+  
+relationship OneToOne {
+	
+    Esami{relEsamiSedi(sede)} to Sedi
+}
+relationship OneToMany {
+ 	Facolta{relFacCdls(nome)} to Cdl{relCdlsFac(nome)},
+ 	Cdl{relCdlMats(nome)} to Materie{relMatsCdl(nome)},
+  	Tutor{relTutMats(nome)} to Materie{relMatsTut(cognome)},
+  	Docenti{relDocMats(nome)} to Materie{relMatsDoc(cognome)} 
+}
+relationship ManyToOne {
+  	NoteEsame{relNoteStud} to Studenti,
+  	NoteEsame{relNoteEsami} to Esami,
+  	PianiDiStudio{relAnnoAccademico} to AnnoAccademico,
+  	PianiDiStudio{relPdsCdl} to Cdl,
+  	Esami{relMatEsami} to Materie,
+    Studenti{relStuCdl} to Cdl
+    
+}
+
+
+
+relationship ManyToMany {
+	PianiDiStudio{relPdsMat} to Materie
+}
+
+dto * with mapstruct
+
+service all with serviceImpl
+
+paginate Studenti, Facolta, Cdl, Materie, Docenti, Tutor, PianiDiStudio, NoteEsame, Esami with pagination
+
+

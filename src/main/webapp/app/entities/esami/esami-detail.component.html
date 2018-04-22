@@ -1,0 +1,38 @@
+
+<div *ngIf="esami">
+    <h2><span jhiTranslate="safOriApp.esami.detail.title">Esami</span> {{esami.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.esami.data">Data</span></dt>
+        <dd>
+            <span>{{esami.data | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.esami.relEsamiSedi">Rel Esami Sedi</span></dt>
+        <dd>
+            <div *ngIf="esami.relEsamiSediId">
+                <a [routerLink]="['/sedi', esami.relEsamiSediId]">{{esami.relEsamiSediSede}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.esami.relMatEsami">Rel Mat Esami</span></dt>
+        <dd>
+            <div *ngIf="esami.relMatEsamiId">
+                <a [routerLink]="['/materie', esami.relMatEsamiId]">{{esami.relMatEsamiId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'esami/'+ esami.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

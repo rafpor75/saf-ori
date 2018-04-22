@@ -1,0 +1,26 @@
+
+{
+    "safOriApp": {
+        "cdl" : {
+            "home": {
+                "title": "Cdls",
+                "createLabel": "Genera un nuovo Cdl",
+                "createOrEditLabel": "Genera o modifica un Cdl"
+            },
+            "created": "&Egrave; stato generato un nuovo Cdl con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Cdl identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Cdl con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Cdl {{ id }}?"
+            },
+            "detail": {
+                "title": "Cdl"
+            },
+            "codice": "Codice",
+            "nome": "Nome",
+            "abilitato": "Abilitato",
+            "relCdlMats": "Rel Cdl Mats",
+            "relCdlsFac": "Rel Cdls Fac"
+        }
+    }
+}

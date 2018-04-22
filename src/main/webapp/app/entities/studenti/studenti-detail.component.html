@@ -1,0 +1,88 @@
+
+<div *ngIf="studenti">
+    <h2><span jhiTranslate="safOriApp.studenti.detail.title">Studenti</span> {{studenti.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.studenti.nome">Nome</span></dt>
+        <dd>
+            <span>{{studenti.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.cognome">Cognome</span></dt>
+        <dd>
+            <span>{{studenti.cognome}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.email">Email</span></dt>
+        <dd>
+            <span>{{studenti.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.telefono">Telefono</span></dt>
+        <dd>
+            <span>{{studenti.telefono}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.indirizzo">Indirizzo</span></dt>
+        <dd>
+            <span>{{studenti.indirizzo}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.citta">Citta</span></dt>
+        <dd>
+            <span>{{studenti.citta}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.provincia">Provincia</span></dt>
+        <dd>
+            <span>{{studenti.provincia}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.stato">Stato</span></dt>
+        <dd>
+            <span>{{studenti.stato}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.cap">Cap</span></dt>
+        <dd>
+            <span>{{studenti.cap}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.dataDiNascita">Data Di Nascita</span></dt>
+        <dd>
+            <span>{{studenti.dataDiNascita | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.luogoDiNascita">Luogo Di Nascita</span></dt>
+        <dd>
+            <span>{{studenti.luogoDiNascita}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.matricola">Matricola</span></dt>
+        <dd>
+            <span>{{studenti.matricola}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.tempoParziale">Tempo Parziale</span></dt>
+        <dd>
+            <span>{{studenti.tempoParziale}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.abilitato">Abilitato</span></dt>
+        <dd>
+            <span>{{studenti.abilitato}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.dataModifica">Data Modifica</span></dt>
+        <dd>
+            <span>{{studenti.dataModifica | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.studenti.relStuCdl">Rel Stu Cdl</span></dt>
+        <dd>
+            <div *ngIf="studenti.relStuCdlId">
+                <a [routerLink]="['/cdl', studenti.relStuCdlId]">{{studenti.relStuCdlId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'studenti/'+ studenti.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

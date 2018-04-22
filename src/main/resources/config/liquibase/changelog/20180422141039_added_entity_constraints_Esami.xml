@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Esami.
+    -->
+    <changeSet id="20180422141039-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="rel_esami_sedi_id"
+                                 baseTableName="esami"
+                                 constraintName="fk_esami_rel_esami_sedi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sedi"/>
+
+        <addForeignKeyConstraint baseColumnNames="rel_mat_esami_id"
+                                 baseTableName="esami"
+                                 constraintName="fk_esami_rel_mat_esami_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="materie"/>
+
+    </changeSet>
+</databaseChangeLog>

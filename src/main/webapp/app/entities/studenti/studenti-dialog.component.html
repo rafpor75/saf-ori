@@ -1,0 +1,141 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myStudentiLabel" jhiTranslate="safOriApp.studenti.home.createOrEditLabel">Create or edit a Studenti</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!studenti.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="studenti.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.nome" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                [(ngModel)]="studenti.nome" required/>
+            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.cognome" for="field_cognome">Cognome</label>
+            <input type="text" class="form-control" name="cognome" id="field_cognome"
+                [(ngModel)]="studenti.cognome" required/>
+            <div [hidden]="!(editForm.controls.cognome?.dirty && editForm.controls.cognome?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.cognome?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="studenti.email" required/>
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.telefono" for="field_telefono">Telefono</label>
+            <input type="text" class="form-control" name="telefono" id="field_telefono"
+                [(ngModel)]="studenti.telefono" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.indirizzo" for="field_indirizzo">Indirizzo</label>
+            <input type="text" class="form-control" name="indirizzo" id="field_indirizzo"
+                [(ngModel)]="studenti.indirizzo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.citta" for="field_citta">Citta</label>
+            <input type="text" class="form-control" name="citta" id="field_citta"
+                [(ngModel)]="studenti.citta" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.provincia" for="field_provincia">Provincia</label>
+            <input type="text" class="form-control" name="provincia" id="field_provincia"
+                [(ngModel)]="studenti.provincia" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.stato" for="field_stato">Stato</label>
+            <input type="text" class="form-control" name="stato" id="field_stato"
+                [(ngModel)]="studenti.stato" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.cap" for="field_cap">Cap</label>
+            <input type="text" class="form-control" name="cap" id="field_cap"
+                [(ngModel)]="studenti.cap" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.dataDiNascita" for="field_dataDiNascita">Data Di Nascita</label>
+            <div class="input-group">
+                <input id="field_dataDiNascita" type="text" class="form-control" name="dataDiNascita" ngbDatepicker  #dataDiNascitaDp="ngbDatepicker" [(ngModel)]="studenti.dataDiNascita"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataDiNascitaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.luogoDiNascita" for="field_luogoDiNascita">Luogo Di Nascita</label>
+            <input type="text" class="form-control" name="luogoDiNascita" id="field_luogoDiNascita"
+                [(ngModel)]="studenti.luogoDiNascita" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.matricola" for="field_matricola">Matricola</label>
+            <input type="text" class="form-control" name="matricola" id="field_matricola"
+                [(ngModel)]="studenti.matricola" required/>
+            <div [hidden]="!(editForm.controls.matricola?.dirty && editForm.controls.matricola?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.matricola?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.tempoParziale" for="field_tempoParziale">Tempo Parziale</label>
+            <input type="checkbox" class="form-control" name="tempoParziale" id="field_tempoParziale"
+                [(ngModel)]="studenti.tempoParziale" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.abilitato" for="field_abilitato">Abilitato</label>
+            <input type="checkbox" class="form-control" name="abilitato" id="field_abilitato"
+                [(ngModel)]="studenti.abilitato" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.dataModifica" for="field_dataModifica">Data Modifica</label>
+            <div class="input-group">
+                <input id="field_dataModifica" type="text" class="form-control" name="dataModifica" ngbDatepicker  #dataModificaDp="ngbDatepicker" [(ngModel)]="studenti.dataModifica"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataModificaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.studenti.relStuCdl" for="field_relStuCdl">Rel Stu Cdl</label>
+            <select class="form-control" id="field_relStuCdl" name="relStuCdl" [(ngModel)]="studenti.relStuCdlId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cdlOption.id" *ngFor="let cdlOption of cdls; trackBy: trackCdlById">{{cdlOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

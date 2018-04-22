@@ -1,0 +1,28 @@
+
+{
+    "safOriApp": {
+        "materie" : {
+            "home": {
+                "title": "Materies",
+                "createLabel": "Genera un nuovo Materie",
+                "createOrEditLabel": "Genera o modifica un Materie"
+            },
+            "created": "&Egrave; stato generato un nuovo Materie con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Materie identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Materie con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Materie {{ id }}?"
+            },
+            "detail": {
+                "title": "Materie"
+            },
+            "nome": "Nome",
+            "cfu": "Cfu",
+            "abilitato": "Abilitato",
+            "dataModifica": "Data Modifica",
+            "relMatsCdl": "Rel Mats Cdl",
+            "relMatsTut": "Rel Mats Tut",
+            "relMatsDoc": "Rel Mats Doc"
+        }
+    }
+}

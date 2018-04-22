@@ -1,0 +1,100 @@
+<div>
+    <h2>
+        <span jhiTranslate="safOriApp.noteEsame.home.title">Note Esames</span>
+        <button class="btn btn-primary float-right jh-create-entity create-note-esame" [routerLink]="['/', { outlets: { popup: ['note-esame-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="safOriApp.noteEsame.home.createLabel">
+            Create new Note Esame
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="noteEsames">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appunti"><span jhiTranslate="safOriApp.noteEsame.appunti">Appunti</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataDispensa"><span jhiTranslate="safOriApp.noteEsame.dataDispensa">Data Dispensa</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataCorsi"><span jhiTranslate="safOriApp.noteEsame.dataCorsi">Data Corsi</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataABI"><span jhiTranslate="safOriApp.noteEsame.dataABI">Data ABI</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataRiepilogo"><span jhiTranslate="safOriApp.noteEsame.dataRiepilogo">Data Riepilogo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="oraEsame"><span jhiTranslate="safOriApp.noteEsame.oraEsame">Ora Esame</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="costoEsame"><span jhiTranslate="safOriApp.noteEsame.costoEsame">Costo Esame</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fasce"><span jhiTranslate="safOriApp.noteEsame.fasce">Fasce</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="piva"><span jhiTranslate="safOriApp.noteEsame.piva">Piva</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fattura"><span jhiTranslate="safOriApp.noteEsame.fattura">Fattura</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="noteFattura"><span jhiTranslate="safOriApp.noteEsame.noteFattura">Note Fattura</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="emailInviata"><span jhiTranslate="safOriApp.noteEsame.emailInviata">Email Inviata</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="relNoteStudId"><span jhiTranslate="safOriApp.noteEsame.relNoteStud">Rel Note Stud</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="relNoteEsamiId"><span jhiTranslate="safOriApp.noteEsame.relNoteEsami">Rel Note Esami</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let noteEsame of noteEsames ;trackBy: trackId">
+                <td><a [routerLink]="['../note-esame', noteEsame.id ]">{{noteEsame.id}}</a></td>
+                <td>{{noteEsame.appunti}}</td>
+                <td>{{noteEsame.dataDispensa | date:'mediumDate'}}</td>
+                <td>{{noteEsame.dataCorsi | date:'mediumDate'}}</td>
+                <td>{{noteEsame.dataABI | date:'mediumDate'}}</td>
+                <td>{{noteEsame.dataRiepilogo | date:'mediumDate'}}</td>
+                <td>{{noteEsame.oraEsame | date:'medium'}}</td>
+                <td>{{noteEsame.costoEsame}}</td>
+                <td>{{noteEsame.fasce}}</td>
+                <td>{{noteEsame.piva}}</td>
+                <td>{{noteEsame.fattura}}</td>
+                <td>{{noteEsame.noteFattura}}</td>
+                <td>{{noteEsame.emailInviata}}</td>
+                <td>
+                    <div *ngIf="noteEsame.relNoteStudId">
+                        <a [routerLink]="['../studenti', noteEsame.relNoteStudId  ]" >{{noteEsame.relNoteStudId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="noteEsame.relNoteEsamiId">
+                        <a [routerLink]="['../esami', noteEsame.relNoteEsamiId  ]" >{{noteEsame.relNoteEsamiId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../note-esame', noteEsame.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'note-esame/'+ noteEsame.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'note-esame/'+ noteEsame.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="noteEsames && noteEsames.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

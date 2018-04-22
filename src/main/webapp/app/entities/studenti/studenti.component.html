@@ -1,0 +1,100 @@
+<div>
+    <h2>
+        <span jhiTranslate="safOriApp.studenti.home.title">Studentis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-studenti" [routerLink]="['/', { outlets: { popup: ['studenti-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="safOriApp.studenti.home.createLabel">
+            Create new Studenti
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="studentis">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nome"><span jhiTranslate="safOriApp.studenti.nome">Nome</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cognome"><span jhiTranslate="safOriApp.studenti.cognome">Cognome</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="safOriApp.studenti.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="safOriApp.studenti.telefono">Telefono</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="indirizzo"><span jhiTranslate="safOriApp.studenti.indirizzo">Indirizzo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="citta"><span jhiTranslate="safOriApp.studenti.citta">Citta</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="provincia"><span jhiTranslate="safOriApp.studenti.provincia">Provincia</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="stato"><span jhiTranslate="safOriApp.studenti.stato">Stato</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cap"><span jhiTranslate="safOriApp.studenti.cap">Cap</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataDiNascita"><span jhiTranslate="safOriApp.studenti.dataDiNascita">Data Di Nascita</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="luogoDiNascita"><span jhiTranslate="safOriApp.studenti.luogoDiNascita">Luogo Di Nascita</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="matricola"><span jhiTranslate="safOriApp.studenti.matricola">Matricola</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tempoParziale"><span jhiTranslate="safOriApp.studenti.tempoParziale">Tempo Parziale</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="abilitato"><span jhiTranslate="safOriApp.studenti.abilitato">Abilitato</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataModifica"><span jhiTranslate="safOriApp.studenti.dataModifica">Data Modifica</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="relStuCdlId"><span jhiTranslate="safOriApp.studenti.relStuCdl">Rel Stu Cdl</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let studenti of studentis ;trackBy: trackId">
+                <td><a [routerLink]="['../studenti', studenti.id ]">{{studenti.id}}</a></td>
+                <td>{{studenti.nome}}</td>
+                <td>{{studenti.cognome}}</td>
+                <td>{{studenti.email}}</td>
+                <td>{{studenti.telefono}}</td>
+                <td>{{studenti.indirizzo}}</td>
+                <td>{{studenti.citta}}</td>
+                <td>{{studenti.provincia}}</td>
+                <td>{{studenti.stato}}</td>
+                <td>{{studenti.cap}}</td>
+                <td>{{studenti.dataDiNascita | date:'mediumDate'}}</td>
+                <td>{{studenti.luogoDiNascita}}</td>
+                <td>{{studenti.matricola}}</td>
+                <td>{{studenti.tempoParziale}}</td>
+                <td>{{studenti.abilitato}}</td>
+                <td>{{studenti.dataModifica | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="studenti.relStuCdlId">
+                        <a [routerLink]="['../cdl', studenti.relStuCdlId  ]" >{{studenti.relStuCdlId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../studenti', studenti.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'studenti/'+ studenti.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'studenti/'+ studenti.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="studentis && studentis.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

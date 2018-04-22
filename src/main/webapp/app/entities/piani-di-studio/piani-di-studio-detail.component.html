@@ -1,0 +1,48 @@
+
+<div *ngIf="pianiDiStudio">
+    <h2><span jhiTranslate="safOriApp.pianiDiStudio.detail.title">Piani Di Studio</span> {{pianiDiStudio.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.pianiDiStudio.abilitato">Abilitato</span></dt>
+        <dd>
+            <span>{{pianiDiStudio.abilitato}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.pianiDiStudio.dataModifica">Data Modifica</span></dt>
+        <dd>
+            <span>{{pianiDiStudio.dataModifica | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.pianiDiStudio.relAnnoAccademico">Rel Anno Accademico</span></dt>
+        <dd>
+            <div *ngIf="pianiDiStudio.relAnnoAccademicoId">
+                <a [routerLink]="['/anno-accademico', pianiDiStudio.relAnnoAccademicoId]">{{pianiDiStudio.relAnnoAccademicoId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.pianiDiStudio.relPdsCdl">Rel Pds Cdl</span></dt>
+        <dd>
+            <div *ngIf="pianiDiStudio.relPdsCdlId">
+                <a [routerLink]="['/cdl', pianiDiStudio.relPdsCdlId]">{{pianiDiStudio.relPdsCdlId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.pianiDiStudio.relPdsMat">Rel Pds Mat</span></dt>
+        <dd>
+            <span *ngFor="let relPdsMat of pianiDiStudio.relPdsMats; let last = last">
+                <a [routerLink]="['/materie', relPdsMat?.id ]">{{relPdsMat.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'piani-di-studio/'+ pianiDiStudio.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

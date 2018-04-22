@@ -1,0 +1,91 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "relStuCdl",
+            "otherEntityName": "cdl",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cognome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "indirizzo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "citta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "provincia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stato",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataDiNascita",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "luogoDiNascita",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matricola",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tempoParziale",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "abilitato",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dataModifica",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180422141037",
+    "entityTableName": "studenti",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

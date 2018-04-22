@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPianiDiStudioLabel" jhiTranslate="safOriApp.pianiDiStudio.home.createOrEditLabel">Create or edit a Piani Di Studio</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!pianiDiStudio.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pianiDiStudio.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.pianiDiStudio.abilitato" for="field_abilitato">Abilitato</label>
+            <input type="checkbox" class="form-control" name="abilitato" id="field_abilitato"
+                [(ngModel)]="pianiDiStudio.abilitato" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.pianiDiStudio.dataModifica" for="field_dataModifica">Data Modifica</label>
+            <div class="input-group">
+                <input id="field_dataModifica" type="text" class="form-control" name="dataModifica" ngbDatepicker  #dataModificaDp="ngbDatepicker" [(ngModel)]="pianiDiStudio.dataModifica"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dataModificaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.pianiDiStudio.relAnnoAccademico" for="field_relAnnoAccademico">Rel Anno Accademico</label>
+            <select class="form-control" id="field_relAnnoAccademico" name="relAnnoAccademico" [(ngModel)]="pianiDiStudio.relAnnoAccademicoId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="annoAccademicoOption.id" *ngFor="let annoAccademicoOption of annoaccademicos; trackBy: trackAnnoAccademicoById">{{annoAccademicoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="safOriApp.pianiDiStudio.relPdsCdl" for="field_relPdsCdl">Rel Pds Cdl</label>
+            <select class="form-control" id="field_relPdsCdl" name="relPdsCdl" [(ngModel)]="pianiDiStudio.relPdsCdlId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cdlOption.id" *ngFor="let cdlOption of cdls; trackBy: trackCdlById">{{cdlOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="safOriApp.pianiDiStudio.relPdsMat" for="field_relPdsMat">Rel Pds Mat</label>
+            <select class="form-control" id="field_relPdsMat" multiple name="relPdsMat" [(ngModel)]="pianiDiStudio.relPdsMats">
+                <option [ngValue]="getSelected(pianiDiStudio.relPdsMats, materieOption)" *ngFor="let materieOption of materies; trackBy: trackMaterieById">{{materieOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

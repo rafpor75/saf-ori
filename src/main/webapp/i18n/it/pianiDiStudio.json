@@ -1,0 +1,26 @@
+
+{
+    "safOriApp": {
+        "pianiDiStudio" : {
+            "home": {
+                "title": "PianiDiStudios",
+                "createLabel": "Genera un nuovo Piani Di Studio",
+                "createOrEditLabel": "Genera o modifica un Piani Di Studio"
+            },
+            "created": "&Egrave; stato generato un nuovo Piani Di Studio con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Piani Di Studio identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Piani Di Studio con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Piani Di Studio {{ id }}?"
+            },
+            "detail": {
+                "title": "Piani Di Studio"
+            },
+            "abilitato": "Abilitato",
+            "dataModifica": "Data Modifica",
+            "relAnnoAccademico": "Rel Anno Accademico",
+            "relPdsCdl": "Rel Pds Cdl",
+            "relPdsMat": "Rel Pds Mat"
+        }
+    }
+}

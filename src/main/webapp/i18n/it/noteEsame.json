@@ -1,0 +1,35 @@
+
+{
+    "safOriApp": {
+        "noteEsame" : {
+            "home": {
+                "title": "NoteEsames",
+                "createLabel": "Genera un nuovo Note Esame",
+                "createOrEditLabel": "Genera o modifica un Note Esame"
+            },
+            "created": "&Egrave; stato generato un nuovo Note Esame con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Note Esame identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Note Esame con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Note Esame {{ id }}?"
+            },
+            "detail": {
+                "title": "Note Esame"
+            },
+            "appunti": "Appunti",
+            "dataDispensa": "Data Dispensa",
+            "dataCorsi": "Data Corsi",
+            "dataABI": "Data ABI",
+            "dataRiepilogo": "Data Riepilogo",
+            "oraEsame": "Ora Esame",
+            "costoEsame": "Costo Esame",
+            "fasce": "Fasce",
+            "piva": "Piva",
+            "fattura": "Fattura",
+            "noteFattura": "Note Fattura",
+            "emailInviata": "Email Inviata",
+            "relNoteStud": "Rel Note Stud",
+            "relNoteEsami": "Rel Note Esami"
+        }
+    }
+}

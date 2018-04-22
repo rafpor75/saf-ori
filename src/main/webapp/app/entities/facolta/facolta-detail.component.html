@@ -1,0 +1,34 @@
+
+<div *ngIf="facolta">
+    <h2><span jhiTranslate="safOriApp.facolta.detail.title">Facolta</span> {{facolta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.facolta.nome">Nome</span></dt>
+        <dd>
+            <span>{{facolta.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.facolta.dataModifica">Data Modifica</span></dt>
+        <dd>
+            <span>{{facolta.dataModifica | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.facolta.abilitato">Abilitato</span></dt>
+        <dd>
+            <span>{{facolta.abilitato}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'facolta/'+ facolta.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

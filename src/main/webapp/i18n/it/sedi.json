@@ -1,0 +1,22 @@
+
+{
+    "safOriApp": {
+        "sedi" : {
+            "home": {
+                "title": "Sedis",
+                "createLabel": "Genera un nuovo Sedi",
+                "createOrEditLabel": "Genera o modifica un Sedi"
+            },
+            "created": "&Egrave; stato generato un nuovo Sedi con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Sedi identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Sedi con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Sedi {{ id }}?"
+            },
+            "detail": {
+                "title": "Sedi"
+            },
+            "sede": "Sede"
+        }
+    }
+}

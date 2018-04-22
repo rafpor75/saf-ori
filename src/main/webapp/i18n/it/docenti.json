@@ -1,0 +1,26 @@
+
+{
+    "safOriApp": {
+        "docenti" : {
+            "home": {
+                "title": "Docentis",
+                "createLabel": "Genera un nuovo Docenti",
+                "createOrEditLabel": "Genera o modifica un Docenti"
+            },
+            "created": "&Egrave; stato generato un nuovo Docenti con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Docenti identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Docenti con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Docenti {{ id }}?"
+            },
+            "detail": {
+                "title": "Docenti"
+            },
+            "nome": "Nome",
+            "cognome": "Cognome",
+            "email": "Email",
+            "abilitato": "Abilitato",
+            "relDocMats": "Rel Doc Mats"
+        }
+    }
+}

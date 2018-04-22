@@ -1,0 +1,22 @@
+
+{
+    "safOriApp": {
+        "annoAccademico" : {
+            "home": {
+                "title": "AnnoAccademicos",
+                "createLabel": "Genera un nuovo Anno Accademico",
+                "createOrEditLabel": "Genera o modifica un Anno Accademico"
+            },
+            "created": "&Egrave; stato generato un nuovo Anno Accademico con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Anno Accademico identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Anno Accademico con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Anno Accademico {{ id }}?"
+            },
+            "detail": {
+                "title": "Anno Accademico"
+            },
+            "descrizione": "Descrizione"
+        }
+    }
+}

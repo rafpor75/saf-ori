@@ -1,0 +1,37 @@
+
+{
+    "safOriApp": {
+        "studenti" : {
+            "home": {
+                "title": "Studentis",
+                "createLabel": "Genera un nuovo Studenti",
+                "createOrEditLabel": "Genera o modifica un Studenti"
+            },
+            "created": "&Egrave; stato generato un nuovo Studenti con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Studenti identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Studenti con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Studenti {{ id }}?"
+            },
+            "detail": {
+                "title": "Studenti"
+            },
+            "nome": "Nome",
+            "cognome": "Cognome",
+            "email": "Email",
+            "telefono": "Telefono",
+            "indirizzo": "Indirizzo",
+            "citta": "Citta",
+            "provincia": "Provincia",
+            "stato": "Stato",
+            "cap": "Cap",
+            "dataDiNascita": "Data Di Nascita",
+            "luogoDiNascita": "Luogo Di Nascita",
+            "matricola": "Matricola",
+            "tempoParziale": "Tempo Parziale",
+            "abilitato": "Abilitato",
+            "dataModifica": "Data Modifica",
+            "relStuCdl": "Rel Stu Cdl"
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "relNoteStud",
+            "otherEntityName": "studenti",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "relNoteEsami",
+            "otherEntityName": "esami",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "appunti",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataDispensa",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataCorsi",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataABI",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataRiepilogo",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "oraEsame",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "costoEsame",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fasce",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "piva",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fattura",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "noteFattura",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailInviata",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180422141040",
+    "entityTableName": "note_esame",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

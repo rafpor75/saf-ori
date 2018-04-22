@@ -1,0 +1,40 @@
+
+<div *ngIf="cdl">
+    <h2><span jhiTranslate="safOriApp.cdl.detail.title">Cdl</span> {{cdl.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="safOriApp.cdl.codice">Codice</span></dt>
+        <dd>
+            <span>{{cdl.codice}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.cdl.nome">Nome</span></dt>
+        <dd>
+            <span>{{cdl.nome}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.cdl.abilitato">Abilitato</span></dt>
+        <dd>
+            <span>{{cdl.abilitato}}</span>
+        </dd>
+        <dt><span jhiTranslate="safOriApp.cdl.relCdlsFac">Rel Cdls Fac</span></dt>
+        <dd>
+            <div *ngIf="cdl.relCdlsFacId">
+                <a [routerLink]="['/facolta', cdl.relCdlsFacId]">{{cdl.relCdlsFacNome}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cdl/'+ cdl.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

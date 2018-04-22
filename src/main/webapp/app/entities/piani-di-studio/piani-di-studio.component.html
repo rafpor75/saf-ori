@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="safOriApp.pianiDiStudio.home.title">Piani Di Studios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-piani-di-studio" [routerLink]="['/', { outlets: { popup: ['piani-di-studio-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="safOriApp.pianiDiStudio.home.createLabel">
+            Create new Piani Di Studio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pianiDiStudios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="abilitato"><span jhiTranslate="safOriApp.pianiDiStudio.abilitato">Abilitato</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataModifica"><span jhiTranslate="safOriApp.pianiDiStudio.dataModifica">Data Modifica</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="relAnnoAccademicoId"><span jhiTranslate="safOriApp.pianiDiStudio.relAnnoAccademico">Rel Anno Accademico</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="relPdsCdlId"><span jhiTranslate="safOriApp.pianiDiStudio.relPdsCdl">Rel Pds Cdl</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pianiDiStudio of pianiDiStudios ;trackBy: trackId">
+                <td><a [routerLink]="['../piani-di-studio', pianiDiStudio.id ]">{{pianiDiStudio.id}}</a></td>
+                <td>{{pianiDiStudio.abilitato}}</td>
+                <td>{{pianiDiStudio.dataModifica | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="pianiDiStudio.relAnnoAccademicoId">
+                        <a [routerLink]="['../anno-accademico', pianiDiStudio.relAnnoAccademicoId  ]" >{{pianiDiStudio.relAnnoAccademicoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="pianiDiStudio.relPdsCdlId">
+                        <a [routerLink]="['../cdl', pianiDiStudio.relPdsCdlId  ]" >{{pianiDiStudio.relPdsCdlId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../piani-di-studio', pianiDiStudio.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'piani-di-studio/'+ pianiDiStudio.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'piani-di-studio/'+ pianiDiStudio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pianiDiStudios && pianiDiStudios.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
